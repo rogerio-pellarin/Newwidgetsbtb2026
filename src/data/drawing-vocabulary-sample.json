@@ -1,0 +1,64 @@
+{
+    "settings": {
+        "languages": {
+            "source_language": "en",
+            "target_language": "es"
+        },
+        "legacy_id": 1500,
+        "ai_enabled": true
+    },
+    "instructions": {
+        "en": "Study the words carefully that were presented in this section. Once you feel that you have them fairly well memorized, draw a little picture of each word below. Try not to look back at the list as you do this exercise!",
+        "es": "Estudia las palabras cuidadosamente que se presentaron en esta sección. Una vez que sientas que las has memorizado bastante bien, dibuja una pequeña imagen de cada palabra a continuación. ¡Intenta no mirar la lista mientras haces este ejercicio!"
+    },
+    "vocabulary": [
+        {
+            "id": 1,
+            "article": { "en": "a", "es": "una" },
+            "word": { "en": "window", "es": "ventana" },
+            "hint": { "en": "Draw the frame and panes", "es": "Dibuja el marco y los paneles" }
+        },
+        {
+            "id": 2,
+            "article": { "en": "a", "es": "un" },
+            "word": { "en": "teacher/professor", "es": "profesor" },
+            "hint": { "en": "Draw a person teaching", "es": "Dibuja una persona enseñando" }
+        },
+        {
+            "id": 3,
+            "article": { "en": "a", "es": "una" },
+            "word": { "en": "house", "es": "casa" },
+            "hint": { "en": "Draw a simple house shape", "es": "Dibuja una forma simple de casa" }
+        },
+        {
+            "id": 4,
+            "article": { "en": "a", "es": "un" },
+            "word": { "en": "pencil", "es": "lápiz" },
+            "hint": { "en": "Draw a long thin writing tool", "es": "Dibuja una herramienta de escritura larga y delgada" }
+        },
+        {
+            "id": 5,
+            "article": { "en": "a", "es": "un" },
+            "word": { "en": "paper", "es": "papel" },
+            "hint": { "en": "Draw a sheet or document", "es": "Dibuja una hoja o documento" }
+        },
+        {
+            "id": 6,
+            "article": { "en": "a", "es": "una" },
+            "word": { "en": "door", "es": "puerta" },
+            "hint": { "en": "Draw a rectangular door with handle", "es": "Dibuja una puerta rectangular con manija" }
+        },
+        {
+            "id": 7,
+            "article": { "en": "a", "es": "una" },
+            "word": { "en": "table", "es": "mesa" },
+            "hint": { "en": "Draw a flat surface with legs", "es": "Dibuja una superficie plana con patas" }
+        },
+        {
+            "id": 8,
+            "article": { "en": "a", "es": "una" },
+            "word": { "en": "chair", "es": "silla" },
+            "hint": { "en": "Draw a seat with a back", "es": "Dibuja un asiento con respaldo" }
+        }
+    ]
+}

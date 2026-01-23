@@ -1,0 +1,89 @@
+{
+  "settings": {
+    "languages": {
+      "source_language": "en",
+      "target_language": "es"
+    },
+    "legacy_id": 3062
+  },
+  "questions": [
+    {
+      "id": 1,
+      "verb": "salir",
+      "verb_source": "to go out",
+      "conjugations": {
+        "el": ["sale"],
+        "tu": ["sales"],
+        "yo": ["salgo"],
+        "ellos": ["salen"],
+        "nosotros": ["salimos"],
+        "vosotros": ["salís"]
+      }
+    },
+    {
+      "id": 2,
+      "verb": "ser",
+      "verb_source": "to be",
+      "conjugations": {
+        "el": ["es"],
+        "tu": ["eres"],
+        "yo": ["soy"],
+        "ellos": ["son"],
+        "nosotros": ["somos"],
+        "vosotros": ["sois"]
+      }
+    },
+    {
+      "id": 3,
+      "verb": "seguir",
+      "verb_source": "to follow",
+      "conjugations": {
+        "el": ["sigue"],
+        "tu": ["sigues"],
+        "yo": ["sigo"],
+        "ellos": ["siguen"],
+        "nosotros": ["seguimos"],
+        "vosotros": ["seguís"]
+      }
+    },
+    {
+      "id": 4,
+      "verb": "oír",
+      "verb_source": "to hear",
+      "conjugations": {
+        "el": ["oye"],
+        "tu": ["oyes"],
+        "yo": ["oigo"],
+        "ellos": ["oyen"],
+        "nosotros": ["oímos"],
+        "vosotros": ["oís"]
+      }
+    },
+    {
+      "id": 5,
+      "verb": "estar",
+      "verb_source": "to be",
+      "conjugations": {
+        "el": ["está"],
+        "tu": ["estás"],
+        "yo": ["estoy"],
+        "ellos": ["están"],
+        "nosotros": ["estamos"],
+        "vosotros": ["estáis"]
+      }
+    },
+    {
+      "id": 6,
+      "verb": "ver",
+      "verb_source": "to see",
+      "conjugations": {
+        "el": ["ve"],
+        "tu": ["ves"],
+        "yo": ["veo"],
+        "ellos": ["ven"],
+        "nosotros": ["vemos"],
+        "vosotros": ["veis"]
+      }
+    }
+  ]
+}

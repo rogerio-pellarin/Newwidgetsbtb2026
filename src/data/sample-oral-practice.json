@@ -1,0 +1,112 @@
+{
+  "settings": {
+    "media": {
+      "audio": "EL_GLACIAR_PERITO_MORENO.mp3"
+    },
+    "languages": {
+      "source_language": "en",
+      "target_language": "es"
+    },
+    "legacy_id": 3057
+  },
+  "questions": [
+    {
+      "id": 1,
+      "media": {
+        "end": 14.0,
+        "start": 0.0,
+        "suggested_answer": 10.0
+      },
+      "prompt": {
+        "es": "¿Cómo se llaman los dos lugares de interés en este artículo?"
+      },
+      "suggested_answer": {
+        "es": "Son el Glaciar Perito Moreno y la ciudad de Ushuaia."
+      }
+    },
+    {
+      "id": 2,
+      "media": {
+        "end": 26.0,
+        "start": 14.0,
+        "suggested_answer": 22.0
+      },
+      "prompt": {
+        "es": "¿Dónde se encuentra el Glaciar Perito Moreno?"
+      },
+      "suggested_answer": {
+        "es": "Este glaciar está en el Parque Nacional Los Glaciares en la Patagonia."
+      }
+    },
+    {
+      "id": 3,
+      "media": {
+        "end": 38.0,
+        "start": 26.0,
+        "suggested_answer": 34.0
+      },
+      "prompt": {
+        "es": "¿Qué pasa, a veces, con esos grandes bloques de hielo?"
+      },
+      "suggested_answer": {
+        "es": "A veces caen al agua, creando un sonido increíble."
+      }
+    },
+    {
+      "id": 4,
+      "media": {
+        "end": 49.0,
+        "start": 38.0,
+        "suggested_answer": 45.0
+      },
+      "prompt": {
+        "es": "¿Es posible hacer el senderismo (hiking) sobre el hielo?"
+      },
+      "suggested_answer": {
+        "es": "Sí, es posible hacer el senderismo sobre el hielo."
+      }
+    },
+    {
+      "id": 5,
+      "media": {
+        "end": 63.0,
+        "start": 50.0,
+        "suggested_answer": 59.0
+      },
+      "prompt": {
+        "es": "Verdadero o Falso: Ushuaia es la ciudad más al norte del mundo."
+      },
+      "suggested_answer": {
+        "es": "¡Falso! Ushuaia es la ciudad más al sur del mundo."
+      }
+    },
+    {
+      "id": 6,
+      "media": {
+        "end": 74.0,
+        "start": 63.0,
+        "suggested_answer": 70.0
+      },
+      "prompt": {
+        "es": "¿Qué construyeron en Ushuaia los primeros colonos de Europa?"
+      },
+      "suggested_answer": {
+        "es": "Construyeron una prisión que ahora es museo."
+      }
+    },
+    {
+      "id": 7,
+      "media": {
+        "end": 85.0,
+        "start": 74.0,
+        "suggested_answer": 81.0
+      },
+      "prompt": {
+        "es": "¿Qué animales puedes ver en esta región del mundo?"
+      },
+      "suggested_answer": {
+        "es": "Puedes ver lobos marinos, pingüinos y aves especiales."
+      }
+    }
+  ]
+}

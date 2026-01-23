@@ -1,0 +1,114 @@
+{
+    "settings": {
+        "languages": {
+            "source_language": "en",
+            "target_language": "es"
+        },
+        "legacy_id": 2100,
+        "target_form": {
+            "en": "preterite",
+            "es": "pretérito"
+        }
+    },
+    "instructions": {
+        "en": "Tap on the verb(s) that are in the preterite tense (some sentences have none!).",
+        "es": "Toca el/los verbo(s) que están en el pretérito (¡algunas oraciones no tienen ninguno!)."
+    },
+    "sentences": [
+        {
+            "id": 1,
+            "words": [
+                { "text": "Napoleón", "isVerb": false },
+                { "text": " ", "isVerb": false },
+                { "text": "ganó", "isVerb": true, "isCorrect": true },
+                { "text": " la batalla de Austerlitz, pero más tarde ", "isVerb": false },
+                { "text": "perdió", "isVerb": true, "isCorrect": true },
+                { "text": " la de Waterloo.", "isVerb": false }
+            ],
+            "hasCorrectVerb": true
+        },
+        {
+            "id": 2,
+            "words": [
+                { "text": "Cuando el vampiro ", "isVerb": false },
+                { "text": "apareció", "isVerb": true, "isCorrect": true },
+                { "text": ", ", "isVerb": false },
+                { "text": "aterrorizó", "isVerb": true, "isCorrect": true },
+                { "text": " a todos los habitantes que ", "isVerb": false },
+                { "text": "vivían", "isVerb": true, "isCorrect": false },
+                { "text": " en el castillo.", "isVerb": false }
+            ],
+            "hasCorrectVerb": true
+        },
+        {
+            "id": 3,
+            "words": [
+                { "text": "Si el lago ", "isVerb": false },
+                { "text": "se congela", "isVerb": true, "isCorrect": false },
+                { "text": ", mi primo ", "isVerb": false },
+                { "text": "patinará", "isVerb": true, "isCorrect": false },
+                { "text": " con sus amigos y espero que ", "isVerb": false },
+                { "text": "reflexionen", "isVerb": true, "isCorrect": false },
+                { "text": " antes de tomar riesgos.", "isVerb": false }
+            ],
+            "hasCorrectVerb": false
+        },
+        {
+            "id": 4,
+            "words": [
+                { "text": "La princesa ", "isVerb": false },
+                { "text": "peinaba", "isVerb": true, "isCorrect": false },
+                { "text": " su cabello rubio cuando el príncipe ", "isVerb": false },
+                { "text": "entró", "isVerb": true, "isCorrect": true },
+                { "text": " y ", "isVerb": false },
+                { "text": "fue", "isVerb": true, "isCorrect": true },
+                { "text": " deslumbrado por su belleza.", "isVerb": false }
+            ],
+            "hasCorrectVerb": true
+        },
+        {
+            "id": 5,
+            "words": [
+                { "text": "No ", "isVerb": false },
+                { "text": "llenes", "isVerb": true, "isCorrect": false },
+                { "text": " tu vaso de vino cada cinco minutos, vas a ", "isVerb": false },
+                { "text": "estar", "isVerb": true, "isCorrect": false },
+                { "text": " borracho!", "isVerb": false }
+            ],
+            "hasCorrectVerb": false
+        },
+        {
+            "id": 6,
+            "words": [
+                { "text": "Ellos ", "isVerb": false },
+                { "text": "tuvieron", "isVerb": true, "isCorrect": true },
+                { "text": " miedo de entrar en el restaurante que les ", "isVerb": false },
+                { "text": "parecía", "isVerb": true, "isCorrect": false },
+                { "text": " demasiado elegante.", "isVerb": false }
+            ],
+            "hasCorrectVerb": true
+        },
+        {
+            "id": 7,
+            "words": [
+                { "text": "Juana de Arco ", "isVerb": false },
+                { "text": "vivió", "isVerb": true, "isCorrect": true },
+                { "text": " en Francia antes de ir a Reims donde el rey ", "isVerb": false },
+                { "text": "fue", "isVerb": true, "isCorrect": true },
+                { "text": " coronado.", "isVerb": false }
+            ],
+            "hasCorrectVerb": true
+        },
+        {
+            "id": 8,
+            "words": [
+                { "text": "Este comentario indiscreto del embajador ", "isVerb": false },
+                { "text": "molestó", "isVerb": true, "isCorrect": true },
+                { "text": " mucho al primer ministro que ", "isVerb": false },
+                { "text": "era", "isVerb": true, "isCorrect": false },
+                { "text": " un hombre muy modesto.", "isVerb": false }
+            ],
+            "hasCorrectVerb": true
+        }
+    ]
+}

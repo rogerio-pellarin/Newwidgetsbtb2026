@@ -1,0 +1,180 @@
+{
+    "settings": {
+        "languages": {
+            "source_language": "en",
+            "target_language": "es"
+        },
+        "legacy_id": 1287
+    },
+    "questions": {
+        "rows": [
+            "comer",
+            "elegir",
+            "salir",
+            "venir (negative)",
+            "bajar",
+            "recordar",
+            "bailar",
+            "decir",
+            "ir",
+            "preocuparse (negative)"
+        ],
+        "columns": [
+            "tú",
+            "nosotros",
+            "vosotros"
+        ],
+        "answers": [
+            {
+                "row": "comer",
+                "responses": {
+                    "tú": {
+                        "value": "¡Come!",
+                        "prefilled": true
+                    },
+                    "nosotros": {
+                        "value": "¡Comamos!"
+                    },
+                    "vosotros": {
+                        "value": "¡Comed!"
+                    }
+                }
+            },
+            {
+                "row": "elegir",
+                "responses": {
+                    "tú": {
+                        "value": "¡Elige!"
+                    },
+                    "nosotros": {
+                        "value": "¡Elijamos!",
+                        "prefilled": true
+                    },
+                    "vosotros": {
+                        "value": "¡Elegid!"
+                    }
+                }
+            },
+            {
+                "row": "salir",
+                "responses": {
+                    "tú": {
+                        "value": "¡Sal!"
+                    },
+                    "nosotros": {
+                        "value": "¡Salgamos!"
+                    },
+                    "vosotros": {
+                        "value": "¡Salid!",
+                        "prefilled": true
+                    }
+                }
+            },
+            {
+                "row": "venir (negative)",
+                "responses": {
+                    "tú": {
+                        "value": "¡No vengas!",
+                        "prefilled": true
+                    },
+                    "nosotros": {
+                        "value": "¡No vengamos!"
+                    },
+                    "vosotros": {
+                        "value": "¡No vengáis!"
+                    }
+                }
+            },
+            {
+                "row": "bajar",
+                "responses": {
+                    "tú": {
+                        "value": "¡Baja!"
+                    },
+                    "nosotros": {
+                        "value": "¡Bajemos!",
+                        "prefilled": true
+                    },
+                    "vosotros": {
+                        "value": "¡Bajad!"
+                    }
+                }
+            },
+            {
+                "row": "recordar",
+                "responses": {
+                    "tú": {
+                        "value": "¡Recuerda!"
+                    },
+                    "nosotros": {
+                        "value": "¡Recordemos!"
+                    },
+                    "vosotros": {
+                        "value": "¡Recordad!",
+                        "prefilled": true
+                    }
+                }
+            },
+            {
+                "row": "bailar",
+                "responses": {
+                    "tú": {
+                        "value": "¡Baila!",
+                        "prefilled": true
+                    },
+                    "nosotros": {
+                        "value": "¡Bailemos!"
+                    },
+                    "vosotros": {
+                        "value": "¡Bailad!"
+                    }
+                }
+            },
+            {
+                "row": "decir",
+                "responses": {
+                    "tú": {
+                        "value": "¡Di!"
+                    },
+                    "nosotros": {
+                        "value": "¡Digamos!",
+                        "prefilled": true
+                    },
+                    "vosotros": {
+                        "value": "¡Decid!"
+                    }
+                }
+            },
+            {
+                "row": "ir",
+                "responses": {
+                    "tú": {
+                        "value": "¡Ve!"
+                    },
+                    "nosotros": {
+                        "value": "¡Vayamos!"
+                    },
+                    "vosotros": {
+                        "value": "¡Id!",
+                        "prefilled": true
+                    }
+                }
+            },
+            {
+                "row": "preocuparse (negative)",
+                "responses": {
+                    "tú": {
+                        "value": "¡No te preocupes!",
+                        "prefilled": true
+                    },
+                    "nosotros": {
+                        "value": "¡No nos preocupemos!"
+                    },
+                    "vosotros": {
+                        "value": "¡No os preocupéis!"
+                    }
+                }
+            }
+        ]
+    }
+}

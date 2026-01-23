@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "languages": {
+      "source_language": "en",
+      "target_language": "es"
+    },
+    "legacy_id": 3074
+  },
+  "questions": [
+    {
+      "id": 1,
+      "prompt": {
+        "es": "Buenos días. Están las seis de la mañana y es muy nublado. ¡Hoy no teno escuela! Mi amigo y yo vamas al parque. Vamos a comprar comida delicioso. Posiblemente vamos a estudiar un poco las leccions en el parque porque el lunes hay un examen, pero, primero, voy a comer cereal y beber leche fría. Adiós."
+      },
+      "suggested_answer": {
+        "es": "Buenos días. <span class=\"orangebold\">Son</span> las seis de la mañana y <span class=\"orangebold\">está</span> muy nublado. ¡Hoy no <span class=\"orangebold\">tengo</span> escuela! Mi amigo y yo <span class=\"orangebold\">vamos</span> al parque. Vamos a comprar comida <span class=\"orangebold\">deliciosa</span>. Posiblemente vamos a estudiar un poco las <span class=\"orangebold\">lecciones</span> en el parque porque el lunes hay un examen, pero, primero, voy a comer cereal y beber leche fría. Adiós."
+      }
+    }
+  ]
+}

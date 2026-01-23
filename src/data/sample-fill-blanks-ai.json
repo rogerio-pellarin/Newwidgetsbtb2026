@@ -1,0 +1,114 @@
+{
+  "settings": {
+    "rubric": {
+      "fluency": true,
+      "structure": true,
+      "completion": true,
+      "vocabulary": true,
+      "subjunctive_usage": true
+    },
+    "languages": {
+      "source_language": "en",
+      "target_language": "es"
+    },
+    "ai_behavior": {
+      "tone": "helpful_professional",
+      "max_turns": 12,
+      "language_model": "responds_in_target_language",
+      "nudge_after_turn": 6,
+      "completion_criteria": "answer_equal_to_or_with_the_same_meaning_as_the_suggested_answer"
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "prompt": {
+        "es": "¿Tiene Ud. (usted) muchos primos?"
+      },
+      "suggested_answer": {
+        "es": "Sí, tengo muchos primos"
+      }
+    },
+    {
+      "id": 2,
+      "prompt": {
+        "es": "¿Tiene Ud. una hermana?"
+      },
+      "suggested_answer": {
+        "es": "No, no tengo una hermana"
+      }
+    },
+    {
+      "id": 3,
+      "prompt": {
+        "es": "¿Tiene Ud. un hermano?"
+      },
+      "suggested_answer": {
+        "es": "Sí, tengo un hermano"
+      }
+    },
+    {
+      "id": 4,
+      "prompt": {
+        "es": "¿Cómo se llama su abuelo?"
+      },
+      "suggested_answer": {
+        "es": "Mi abuelo se llama Edgar"
+      }
+    },
+    {
+      "id": 5,
+      "prompt": {
+        "es": "¿Cómo se llama su tía?"
+      },
+      "suggested_answer": {
+        "es": "Mi tía se llama Margarita"
+      }
+    },
+    {
+      "id": 6,
+      "prompt": {
+        "es": "¿Cómo se llama su madre?"
+      },
+      "suggested_answer": {
+        "es": "Mi madre se llama Luisa"
+      }
+    },
+    {
+      "id": 7,
+      "prompt": {
+        "es": "¿Tiene Ud. un cuñado?"
+      },
+      "suggested_answer": {
+        "es": "Sí, tengo un cuñado"
+      }
+    },
+    {
+      "id": 8,
+      "prompt": {
+        "es": "¿Tiene muchos primos su amigo?"
+      },
+      "suggested_answer": {
+        "es": "Sí, mi amigo tiene muchos primos"
+      }
+    },
+    {
+      "id": 9,
+      "prompt": {
+        "es": "¿Tiene esposo Penélope Cruz?"
+      },
+      "suggested_answer": {
+        "es": "Sí, Penélope Cruz tiene esposo"
+      }
+    },
+    {
+      "id": 10,
+      "prompt": {
+        "es": "¿Tiene Ud. muchos primos?"
+      },
+      "suggested_answer": {
+        "es": "No, no tengo muchos primos"
+      }
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breaking the Barrier - Widget Embed Example</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      color: #1a202c;
+    }
+
+    .subtitle {
+      color: #666;
+      margin: 0;
+    }
+
+    .widget-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .widget-section h2 {
+      margin-top: 0;
+      color: #2d3748;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+
+    .widget-info {
+      background: #f7fafc;
+      border-left: 4px solid #4299e1;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+
+    .widget-info code {
+      background: #edf2f7;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .controls {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #f7fafc;
+      border-radius: 4px;
+    }
+
+    .controls button {
+      background: #4299e1;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .controls button:hover {
+      background: #3182ce;
+    }
+
+    .controls button.danger {
+      background: #e53e3e;
+    }
+
+    .controls button.danger:hover {
+      background: #c53030;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Widget container styling */
+    [data-btb-widget] {
+      min-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Breaking the Barrier - Widget Embed Examples</h1>
+    <p class="subtitle">This page demonstrates how to embed Breaking the Barrier assessment widgets in WordPress/Elementor</p>
+  </header>
+
+  <!-- Example 1: Data Attributes (Auto-initialization) -->
+  <section class="widget-section">
+    <h2>Example 1: Fill-in Practice (Auto-initialized)</h2>
+    <div class="widget-info">
+      <strong>Method:</strong> Data attributes (recommended for Elementor)<br>
+      <strong>Activity Type:</strong> <code>fill_in_blanks_ai</code><br>
+      <strong>Activity ID:</strong> <code>1</code><br>
+      <strong>Book Series:</strong> <code>BtSB1</code> (Spanish 1 - Yellow theme)
+    </div>
+    
+    <!-- This is what you would paste into Elementor HTML widget -->
+    <div 
+      id="widget-fill-blanks-1"
+      data-btb-widget="true"
+      data-widget-id="fill-blanks-example-1"
+      data-activity-type="fill_in_blanks_ai"
+      data-activity-id="1"
+      data-book-series="BtSB1"
+      data-language="en"
+    ></div>
+  </section>
+
+  <!-- Example 2: JavaScript API -->
+  <section class="widget-section">
+    <h2>Example 2: Verb Practice (JavaScript API)</h2>
+    <div class="widget-info">
+      <strong>Method:</strong> JavaScript API (programmatic control)<br>
+      <strong>Activity Type:</strong> <code>verb_conjugation</code><br>
+      <strong>Activity ID:</strong> <code>3062</code><br>
+      <strong>Book Series:</strong> <code>BtSB2</code> (Spanish 2 - Red theme)
+    </div>
+
+    <div class="controls">
+      <button onclick="loadVerbWidget()">Load Widget</button>
+      <button class="danger" onclick="window.BTBWidgets.destroyWidget('widget-verb-1')">Destroy Widget</button>
+    </div>
+    
+    <!-- Container for JavaScript-initialized widget -->
+    <div id="widget-verb-1"></div>
+  </section>
+
+  <!-- Example 3: Different Activity Type -->
+  <section class="widget-section">
+    <h2>Example 3: Conversation Practice</h2>
+    <div class="widget-info">
+      <strong>Method:</strong> Data attributes<br>
+      <strong>Activity Type:</strong> <code>ai_chat</code><br>
+      <strong>Activity ID:</strong> <code>1</code><br>
+      <strong>Book Series:</strong> <code>BtSB3</code> (Spanish 3 - Blue theme)
+    </div>
+    
+    <div 
+      id="widget-chat-1"
+      data-btb-widget="true"
+      data-widget-id="chat-example-1"
+      data-activity-type="ai_chat"
+      data-activity-id="1"
+      data-book-series="BtSB3"
+      data-language="en"
+    ></div>
+  </section>
+
+  <!-- Example 4: Oral Practice -->
+  <section class="widget-section">
+    <h2>Example 4: Oral Practice</h2>
+    <div class="widget-info">
+      <strong>Method:</strong> Data attributes<br>
+      <strong>Activity Type:</strong> <code>oral_practice</code><br>
+      <strong>Activity ID:</strong> <code>3057</code><br>
+      <strong>Book Series:</strong> <code>BtFB1</code> (French 1 - Yellow theme)
+    </div>
+    
+    <div 
+      id="widget-oral-1"
+      data-btb-widget="true"
+      data-widget-id="oral-example-1"
+      data-activity-type="oral_practice"
+      data-activity-id="3057"
+      data-book-series="BtFB1"
+      data-language="en"
+    ></div>
+  </section>
+
+  <!-- Example 5: Drawing Vocabulary -->
+  <section class="widget-section">
+    <h2>Example 5: Sketch & Label</h2>
+    <div class="widget-info">
+      <strong>Method:</strong> Data attributes<br>
+      <strong>Activity Type:</strong> <code>drawing_vocabulary</code><br>
+      <strong>Activity ID:</strong> <code>1500</code><br>
+      <strong>Book Series:</strong> <code>BtSB4</code> (Spanish 4 - Green theme)
+    </div>
+    
+    <div 
+      id="widget-drawing-1"
+      data-btb-widget="true"
+      data-widget-id="drawing-example-1"
+      data-activity-type="drawing_vocabulary"
+      data-activity-id="1500"
+      data-book-series="BtSB4"
+      data-language="en"
+    ></div>
+  </section>
+
+  <footer>
+    <p>Breaking the Barrier Assessment Widgets v<span id="version"></span></p>
+    <p>For integration help, see WORDPRESS_INTEGRATION.md</p>
+  </footer>
+
+  <!-- 
+    In production, these scripts would be in your WordPress theme:
+    - Load from your theme directory or CDN
+    - Enqueue in functions.php
+  -->
+  <script type="module">
+    // This simulates loading the widget bundle
+    // In WordPress, you would load the built widget.js file
+    import { initWidget } from './src/widget-embed.tsx';
+
+    // Make it available globally (this happens automatically in the built bundle)
+    window.BTBWidgets = window.BTBWidgets || {
+      initWidget,
+      destroyWidget: (id) => console.log('Destroy:', id),
+      version: '1.0.0'
+    };
+
+    // Display version
+    document.getElementById('version').textContent = window.BTBWidgets.version;
+
+    // Function for Example 2 button
+    window.loadVerbWidget = function() {
+      window.BTBWidgets.initWidget('widget-verb-1', {
+        widgetId: 'verb-example-1',
+        activityType: 'verb_conjugation',
+        activityId: 3062,
+        bookSeries: 'BtSB2',
+        language: 'en'
+      });
+    };
+  </script>
+
+  <!-- 
+    Note: In production WordPress, you would load the actual built files like this:
+    
+    <link rel="stylesheet" href="/wp-content/themes/your-theme/btb-widgets/styles.css">
+    <script src="/wp-content/themes/your-theme/btb-widgets/react-vendor.js"></script>
+    <script src="/wp-content/themes/your-theme/btb-widgets/widgets.js"></script>
+    <script src="/wp-content/themes/your-theme/btb-widgets/widget.js"></script>
+  -->
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "languages": {
+      "source_language": "en",
+      "target_language": "en"
+    },
+    "legacy_id": 2528
+  },
+  "questions": [
+    {
+      "id": 1,
+      "prompts": {
+        "en": "<p>Now write your own love poem, using three \"if clauses\":</p>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "settings": {
+    "rubric": {
+      "fluency": true,
+      "structure": true,
+      "completion": true,
+      "vocabulary": true,
+      "subjunctive_usage": true
+    },
+    "languages": {
+      "source_language": "en",
+      "target_language": "es"
+    },
+    "ai_behavior": {
+      "tone": "helpful_professional",
+      "max_turns": 12,
+      "language_model": "responds_in_target_language",
+      "nudge_after_turn": 6,
+      "completion_criteria": "write a text in the target language that is concise and respects grammatical rules"
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "media": "BtSB1L4a.jpg",
+      "titles": {
+        "en": "My friend didn't speak to me yesterday!",
+        "es": "¡Mi amigo/a no me habló conmigo ayer!"
+      },
+      "prompts": {
+        "en": "Write a short composition explaining why your friend didn't speak to you yesterday. What happened?",
+        "es": "Escribe una composición corta explicando por qué tu amigo/a no te habló ayer. ¿Qué pasó?"
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "settings": {
+    "media": {
+      "image": "scene_01.jpg",
+      "video_link": "1085832660"
+    },
+    "rubric": {
+      "fluency": true,
+      "structure": true,
+      "completion": true,
+      "vocabulary": true
+    },
+    "context": {
+      "en": "You've just arrived at a café and the friendly barista, Ana, greets you.",
+      "es": "Acabas de llegar a una cafetería y Ana, la barista, te saluda."
+    },
+    "npc_role": {
+      "en": "Ana / barista",
+      "es": "Ana / barista"
+    },
+    "languages": {
+      "source_language": "en",
+      "target_language": "es"
+    },
+    "ai_behavior": {
+      "tone": "friendly",
+      "max_turns": 12,
+      "language_model": "responds_in_target_language",
+      "nudge_after_turn": 6,
+      "completion_criteria": "complete_cafe_order"
+    },
+    "scenario_goal": {
+      "en": "Order food or drink and thank politely.",
+      "es": "Pedir comida o bebida y agradecer educadamente."
+    },
+    "student_prompt": {
+      "en": "You're at a café speaking with Ana, the barista. Greet her politely, order something to eat or drink, and say thank you. Use the present tense of ser or estar and courteous expressions.",
+      "es": "Estás en una cafetería y vas a interactuar con Ana, la barista. Salúdala con cortesía, pide algo de comer o beber y dale las gracias. Usa el presente de ser o estar y frases educadas."
+    },
+    "curriculum_info": {
+      "unit_title": "¡Vamos! Beginner A",
+      "lesson_title": "Lesson 1",
+      "country_focus": ""
+    },
+    "grammar_targets": [
+      "Present tense of ser/estar",
+      "Courtesy phrases"
+    ],
+    "scenario_description": "Greet and order at a café",
+    "vocabulary_highlights": [
+      {
+        "en": "hello",
+        "es": "hola"
+      },
+      {
+        "en": "water",
+        "es": "agua"
+      },
+      {
+        "en": "coffee",
+        "es": "café"
+      },
+      {
+        "en": "tea",
+        "es": "té"
+      },
+      {
+        "en": "thank you",
+        "es": "gracias"
+      }
+    ]
+  },
+  "questions": {}
+}
