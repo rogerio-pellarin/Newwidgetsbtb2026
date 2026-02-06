@@ -14,7 +14,7 @@ import type {
   DrawingVocabularyActivity,
 } from '../types/activities';
 
-// Import sample data
+// Import sample data - using static imports for better bundling
 import verbConjugationData from '../data/sample-verb-conjugation.json';
 import fillBlanksAIData from '../data/sample-fill-blanks-ai.json';
 import aiCompositionData from '../data/sample-ai-composition.json';
@@ -46,6 +46,9 @@ class ActivityAPIService {
    * @param activityId - The unique ID of the activity
    */
   async fetchActivity(activityType: ActivityType, activityId: number): Promise<Activity> {
+    // Add a small delay to simulate network request
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
     // TODO: Replace with actual API call
     // const response = await fetch(`${this.baseUrl}/activities/${activityType}/${activityId}`);
     // if (!response.ok) throw new Error('Failed to fetch activity');
@@ -81,6 +84,13 @@ class ActivityAPIService {
    */
   async fetchOralPractice(activityId: number): Promise<OralPracticeActivity> {
     return this.fetchActivity('oral_practice', activityId) as Promise<OralPracticeActivity>;
+  }
+
+  /**
+   * Fetch a listening comprehension activity
+   */
+  async fetchListeningComprehension(activityId: number): Promise<OralPracticeActivity> {
+    return this.fetchActivity('listening_comprehension', activityId) as Promise<OralPracticeActivity>;
   }
 
   /**
@@ -137,30 +147,32 @@ class ActivityAPIService {
    */
   private getMockActivity(activityType: ActivityType, activityId: number): Activity {
     // This would be replaced with actual API calls
-    // For now, return empty mock structures
+    // For now, return sample data from imported JSON files
     switch (activityType) {
       case 'verb_conjugation':
-        return verbConjugationData;
+        return verbConjugationData as any;
       case 'fill_in_blanks_ai':
-        return fillBlanksAIData;
+        return fillBlanksAIData as any;
       case 'ai_composition':
-        return aiCompositionData;
+        return aiCompositionData as any;
       case 'oral_practice':
-        return oralPracticeData;
+        return oralPracticeData as any;
+      case 'listening_comprehension':
+        return oralPracticeData as any; // Use same data structure as oral practice
       case 'ai_chat':
-        return aiChatData;
+        return aiChatData as any;
       case 'paragraph_correction':
-        return paragraphCorrectionData;
+        return paragraphCorrectionData as any;
       case 'extended_response':
-        return extendedResponseData;
+        return extendedResponseData as any;
       case 'dropdown_selection':
-        return dropdownSelectionData;
+        return dropdownSelectionData as any;
       case 'table_fill_blanks':
-        return tableFillBlanksData;
+        return tableFillBlanksData as any;
       case 'verb_identification':
-        return verbIdentificationData;
+        return verbIdentificationData as any;
       case 'drawing_vocabulary':
-        return drawingVocabularyData;
+        return drawingVocabularyData as any;
       default:
         throw new Error(`Unknown activity type: ${activityType}`);
     }

@@ -284,6 +284,7 @@ export type ActivityType =
   | 'fill_in_blanks_ai'
   | 'ai_composition'
   | 'oral_practice'
+  | 'listening_comprehension'
   | 'ai_chat'
   | 'paragraph_correction'
   | 'extended_response'

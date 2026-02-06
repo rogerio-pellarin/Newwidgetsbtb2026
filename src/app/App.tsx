@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FillInBlanksWidget } from './components/FillInBlanksWidget';
 import { ExtendedResponseWidget } from './components/ExtendedResponseWidget';
 import { OralPracticeWidget } from './components/OralPracticeWidget';
+import { ListeningComprehensionWidget } from './components/ListeningComprehensionWidget';
 import { CorrectParagraphWidget } from './components/CorrectParagraphWidget';
 import { VerbConjugationWidget } from './components/VerbConjugationWidget';
 import { FillInBlanksAIWidget } from './components/FillInBlanksAIWidget';
@@ -17,6 +18,7 @@ import { LanguageToggle } from './components/LanguageToggle';
 import { BookSelector } from './components/BookSelector';
 import { ThemeProvider } from '../contexts/ThemeContext';
 import { activityAPI } from '../services/api';
+import { ChevronDown } from 'lucide-react';
 import type {
   VerbConjugationActivity,
   FillInBlanksAIActivity,
@@ -37,6 +39,7 @@ export default function App() {
     | 'fill-blanks-ai'
     | 'extended-response'
     | 'oral-practice'
+    | 'listening-comprehension'
     | 'correct-paragraph'
     | 'conjugation'
     | 'ai-composition'
@@ -103,6 +106,25 @@ export default function App() {
     setLanguage(language === 'en' ? 'es' : 'en');
   };
 
+  // Widget options for dropdown
+  const widgetOptions = [
+    { id: 'fill-blanks' as const, label: 'Fill-in Practice' },
+    { id: 'fill-blanks-ai' as const, label: 'Guided Fill-in' },
+    { id: 'extended-response' as const, label: 'Open Response' },
+    { id: 'oral-practice' as const, label: 'Oral Practice' },
+    { id: 'listening-comprehension' as const, label: 'Listening Comprehension' },
+    { id: 'correct-paragraph' as const, label: 'Spot the Mistake' },
+    { id: 'conjugation' as const, label: 'Verb Practice' },
+    { id: 'ai-composition' as const, label: 'Writing Practice' },
+    { id: 'ai-chat' as const, label: 'Conversation Practice' },
+    { id: 'dropdown' as const, label: 'Dropdown Match' },
+    { id: 'table' as const, label: 'Info Grid' },
+    { id: 'verb-id' as const, label: 'Verb Finder' },
+    { id: 'drawing' as const, label: 'Sketch & Label' },
+  ];
+
+  const currentWidgetLabel = widgetOptions.find(w => w.id === activeWidget)?.label || 'Select Widget';
+
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-gray-50">
@@ -138,127 +160,20 @@ export default function App() {
             </div>
             
             {/* Widget Selector */}
-            <div className="flex gap-2 flex-wrap">
-              <button
-                onClick={() => setActiveWidget('fill-blanks')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'fill-blanks'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+            {/* Dropdown for all screen sizes */}
+            <div className="relative">
+              <select
+                value={activeWidget}
+                onChange={(e) => setActiveWidget(e.target.value as any)}
+                className="w-full px-4 py-3 pr-10 bg-white border-2 border-gray-300 rounded-lg appearance-none cursor-pointer focus:outline-none focus:border-gray-500 text-gray-900 font-medium"
               >
-                Fill-in Practice
-              </button>
-              <button
-                onClick={() => setActiveWidget('fill-blanks-ai')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'fill-blanks-ai'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Guided Fill-in
-              </button>
-              <button
-                onClick={() => setActiveWidget('extended-response')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'extended-response'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Open Response
-              </button>
-              <button
-                onClick={() => setActiveWidget('oral-practice')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'oral-practice'
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Oral Practice
-              </button>
-              <button
-                onClick={() => setActiveWidget('correct-paragraph')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'correct-paragraph'
-                    ? 'bg-orange-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Spot the Mistake
-              </button>
-              <button
-                onClick={() => setActiveWidget('conjugation')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'conjugation'
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Verb Practice
-              </button>
-              <button
-                onClick={() => setActiveWidget('ai-composition')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'ai-composition'
-                    ? 'bg-pink-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Writing Practice
-              </button>
-              <button
-                onClick={() => setActiveWidget('ai-chat')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'ai-chat'
-                    ? 'bg-teal-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Conversation Practice
-              </button>
-              <button
-                onClick={() => setActiveWidget('dropdown')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'dropdown'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Dropdown Match
-              </button>
-              <button
-                onClick={() => setActiveWidget('table')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'table'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Info Grid
-              </button>
-              <button
-                onClick={() => setActiveWidget('verb-id')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'verb-id'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Verb Finder
-              </button>
-              <button
-                onClick={() => setActiveWidget('drawing')}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeWidget === 'drawing'
-                    ? 'bg-gray-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Sketch & Label
-              </button>
+                {widgetOptions.map((widget) => (
+                  <option key={widget.id} value={widget.id}>
+                    {widget.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-600 pointer-events-none" />
             </div>
           </div>
         </div>
@@ -282,6 +197,13 @@ export default function App() {
           )}
           {activeWidget === 'oral-practice' && oralPracticeData && (
             <OralPracticeWidget 
+              language={language} 
+              onLanguageToggle={toggleLanguage}
+              activity={oralPracticeData}
+            />
+          )}
+          {activeWidget === 'listening-comprehension' && oralPracticeData && (
+            <ListeningComprehensionWidget 
               language={language} 
               onLanguageToggle={toggleLanguage}
               activity={oralPracticeData}

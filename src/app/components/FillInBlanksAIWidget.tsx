@@ -17,6 +17,7 @@ interface Question {
     message: string;
   };
   suggestedAnswer?: string;
+  reviewCount?: number;
 }
 
 // Helper function to render text with infinitive verbs in parentheses styled as blue italic
@@ -67,7 +68,7 @@ const translations = {
   en: {
     title: 'Guided Fill-in',
     instructions: 'Answer the following questions with complete sentences.',
-    aiHelp: 'AI Help',
+    review: 'Review',
     showSuggested: 'Show Suggested Answer',
     hideSuggested: 'Hide Suggested Answer',
     resetAll: 'Reset All',
@@ -81,7 +82,7 @@ const translations = {
   es: {
     title: 'Ejercicios',
     instructions: 'Responde las siguientes preguntas con oraciones completas.',
-    aiHelp: 'Ayuda IA',
+    review: 'Revisar',
     showSuggested: 'Mostrar respuesta sugerida',
     hideSuggested: 'Ocultar respuesta sugerida',
     resetAll: 'Reiniciar todo',
@@ -135,29 +136,44 @@ export function FillInBlanksAIWidget({ language, onLanguageToggle, activity }: F
   }, [questions]);
 
   const updateAnswer = (id: number, answer: string) => {
-    setQuestions(questions.map((q) => (q.id === id ? { ...q, userAnswer: answer, aiFeedback: undefined } : q)));
+    setQuestions(questions.map((q) => (q.id === id ? { ...q, userAnswer: answer, aiFeedback: undefined, reviewCount: 0 } : q)));
   };
 
   const getAIFeedback = (id: number) => {
     const question = questions.find((q) => q.id === id);
     if (!question || !question.userAnswer || question.userAnswer.trim() === '') return;
 
-    // Simulate AI feedback
-    const feedback =
-      question.userAnswer.toLowerCase().includes('dormí') || question.userAnswer.toLowerCase().includes('dormi')
-        ? {
-            status: 'needs-improvement' as const,
-            score: 70,
-            message:
-              'Your answer is almost correct! Remember to include the accent mark on "dormí" and include the word "anoche" to specify when you slept well.',
-          }
-        : {
-            status: 'good' as const,
-            score: 90,
-            message: 'Great job! Your sentence structure is correct and you included all necessary details.',
-          };
+    const currentReviewCount = question.reviewCount || 0;
 
-    setQuestions(questions.map((q) => (q.id === id ? { ...q, aiFeedback: feedback } : q)));
+    // Demo: First review gives yellow feedback, second review gives green
+    let feedback;
+    if (currentReviewCount === 0) {
+      // First review - yellow feedback with suggestions
+      feedback = {
+        status: 'needs-improvement' as const,
+        score: 70,
+        message:
+          language === 'en'
+            ? 'Good start! Consider adding more detail about when you slept. Try including the word "anoche" (last night) and make sure all accents are correct.'
+            : 'Buen comienzo! Considera agregar más detalle sobre cuándo dormiste. Intenta incluir la palabra "anoche" y asegúrate de que todos los acentos sean correctos.',
+      };
+    } else {
+      // Second review - green feedback with congratulations
+      feedback = {
+        status: 'good' as const,
+        score: 95,
+        message:
+          language === 'en'
+            ? '¡Excelente! Your answer is now complete and accurate. Great job incorporating the feedback!'
+            : '¡Excelente! Tu respuesta ahora está completa y precisa. ¡Buen trabajo incorporando la retroalimentación!',
+      };
+    }
+
+    setQuestions(
+      questions.map((q) =>
+        q.id === id ? { ...q, aiFeedback: feedback, reviewCount: currentReviewCount + 1 } : q
+      )
+    );
   };
 
   const toggleSuggestedAnswer = (id: number) => {
@@ -238,20 +254,20 @@ export function FillInBlanksAIWidget({ language, onLanguageToggle, activity }: F
             >
               <Lightbulb className="w-4 h-4" />
             </div>
-            <span className="font-semibold">AI Features</span>
+            <span className="font-semibold">{language === 'en' ? 'Smart assistance' : 'Asistencia inteligente'}</span>
           </div>
           <ul className="space-y-2 text-sm text-gray-700 bg-white rounded-lg p-3 shadow-sm">
             <li className="flex items-start gap-2">
               <span className="mt-0.5 font-bold text-base" style={{ color: theme.primary }}>•</span>
-              <span>Get instant AI feedback</span>
+              <span>{language === 'en' ? 'Get instant feedback' : 'Obtén retroalimentación instantánea'}</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 font-bold text-base" style={{ color: theme.primary }}>•</span>
-              <span>View suggested answers</span>
+              <span>{language === 'en' ? 'View suggested answers' : 'Ver respuestas sugeridas'}</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 font-bold text-base" style={{ color: theme.primary }}>•</span>
-              <span>Auto-saves as you type</span>
+              <span>{language === 'en' ? 'Auto-saves as you type' : 'Guardado automático'}</span>
             </li>
           </ul>
         </div>
@@ -358,7 +374,7 @@ export function FillInBlanksAIWidget({ language, onLanguageToggle, activity }: F
                     className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex items-center gap-2 text-sm"
                   >
                     <Wand2 className="w-4 h-4" />
-                    <span>{t.aiHelp}</span>
+                    <span>{t.review}</span>
                   </button>
                 </div>
 

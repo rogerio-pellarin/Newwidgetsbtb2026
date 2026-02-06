@@ -361,7 +361,7 @@ export function CorrectParagraphWidget({ language, onLanguageToggle, activity }:
               ) : (
                 <>
                   <Lightbulb className="w-5 h-5" />
-                  <span>{language === 'en' ? 'Get AI Feedback' : 'Obtener comentarios de IA'}</span>
+                  <span>{language === 'en' ? 'Ask Coach' : 'Preguntar Coach'}</span>
                 </>
               )}
             </button>

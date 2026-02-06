@@ -19,6 +19,7 @@ interface Question {
   };
   suggestedAnswer?: string;
   showSuggested?: boolean;
+  reviewCount?: number;
 }
 
 interface ExtendedResponseWidgetProps {
@@ -47,7 +48,7 @@ const translations = {
     saved: 'Saved',
     wordsMin: 'words minimum',
     words: 'words',
-    aiHelp: 'AI Help',
+    aiHelp: 'Ask Coach',
     showSuggested: 'Show Suggested Answer',
     hideSuggested: 'Hide Suggested Answer',
     feedback: 'Feedback',
@@ -74,7 +75,7 @@ const translations = {
     saved: 'Guardado',
     wordsMin: 'palabras mínimo',
     words: 'palabras',
-    aiHelp: 'Ayuda IA',
+    aiHelp: 'Preguntar Coach',
     showSuggested: 'Mostrar respuesta sugerida',
     hideSuggested: 'Ocultar respuesta sugerida',
     feedback: 'Comentarios',
@@ -147,29 +148,69 @@ export function ExtendedResponseWidget({ language, onLanguageToggle, activity }:
     const question = questions.find((q) => q.id === id);
     if (!question || !question.userAnswer || question.userAnswer.trim() === '') return;
 
-    const wordCount = question.userAnswer.trim().split(/\s+/).length;
-    const hasGoodLength = wordCount >= 50;
-    const hasGoodStructure = wordCount >= 30;
+    setLoadingFeedback(id);
 
-    const feedback = hasGoodLength
-      ? {
+    // Simulate API delay
+    setTimeout(() => {
+      const wordCount = question.userAnswer!.trim().split(/\s+/).length;
+      const hasGoodLength = wordCount >= 50;
+      const hasDecentLength = wordCount >= 30;
+
+      let feedback;
+
+      if (hasGoodLength) {
+        // Excellent responses (50+ words) - Always encouraging green feedback
+        const encouragingMessages = [
+          '¡Excelente trabajo! Your response shows great depth and understanding. You\'ve expressed your ideas clearly with excellent detail and structure. Keep up the outstanding work!',
+          '¡Fantástico! Your writing demonstrates strong language skills and thoughtful development of ideas. The level of detail you provided is impressive. You\'re doing amazing!',
+          '¡Muy bien! Your response is thorough and well-organized. You\'ve done an excellent job developing your thoughts with clarity and depth. This is the kind of quality work that leads to real progress!',
+        ];
+        feedback = {
           status: 'good' as const,
-          score: 90,
-          message: 'Excellent! Your response is detailed, well-structured, and demonstrates strong language skills. You\'ve provided multiple sentences with good variety and depth.',
+          score: 92 + Math.floor(Math.random() * 8), // 92-99
+          message: encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)],
           suggestions: [],
-        }
-      : {
-          status: 'needs-improvement' as const,
-          score: wordCount >= 30 ? 70 : 50,
-          message: hasGoodStructure 
-            ? 'Good start! Your response covers the topic, but could be more detailed. Try adding more specific examples and descriptions.'
-            : 'Your response is too brief for an extended response. Try to write at least 50 words with multiple sentences and detailed explanations.',
-          suggestions: hasGoodStructure 
-            ? ['Add more specific examples', 'Use more descriptive adjectives', 'Include transitions between ideas']
-            : ['Write at least 50 words', 'Use multiple sentences', 'Add more details and examples', 'Organize your thoughts into paragraphs'],
         };
+      } else if (hasDecentLength) {
+        // Good start (30-49 words) - Encouraging yellow feedback with gentle suggestions
+        const encouragingMessages = [
+          'Great start! You\'re on the right track with your ideas. To make your response even stronger, try adding a few more specific details or examples. You\'re doing well - just a bit more depth will make this excellent!',
+          '¡Buen trabajo! Your response covers the main points nicely. Adding just a bit more detail and a couple more sentences would make this truly outstanding. You\'ve got this!',
+          'Nice work! Your ideas are clear and well-expressed. With just a few more sentences and examples, this will be perfect. Keep going - you\'re almost there!',
+        ];
+        feedback = {
+          status: 'needs-improvement' as const,
+          score: 75 + Math.floor(Math.random() * 10), // 75-84
+          message: encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)],
+          suggestions: [
+            'Add 1-2 more sentences',
+            'Include a specific example',
+            'Expand on your main idea',
+          ],
+        };
+      } else {
+        // Brief responses (under 30 words) - Very encouraging with supportive guidance
+        const encouragingMessages = [
+          'Good beginning! You\'ve got the foundation here. Now let\'s build on it - try writing 3-4 more sentences with examples and details. I believe in you - you can do this!',
+          'Nice start! You\'re thinking in the right direction. Take a moment to expand your ideas with more sentences and specific details. You\'ve got great potential - keep writing!',
+          'Great effort getting started! Now challenge yourself to write more. Add several sentences with details, examples, and explanations. You\'re capable of amazing work - show me what you can do!',
+        ];
+        feedback = {
+          status: 'needs-improvement' as const,
+          score: 60 + Math.floor(Math.random() * 10), // 60-69
+          message: encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)],
+          suggestions: [
+            'Aim for at least 50 words',
+            'Add 3-4 more sentences',
+            'Include specific examples and details',
+            'Develop each idea more fully',
+          ],
+        };
+      }
 
-    setQuestions(questions.map((q) => (q.id === id ? { ...q, aiFeedback: feedback } : q)));
+      setQuestions(questions.map((q) => (q.id === id ? { ...q, aiFeedback: feedback } : q)));
+      setLoadingFeedback(null);
+    }, 1200); // Simulate thinking time
   };
 
   const toggleSuggestedAnswer = (id: number) => {
@@ -364,11 +405,25 @@ export function ExtendedResponseWidget({ language, onLanguageToggle, activity }:
                 <div className="flex flex-wrap gap-3 mb-4">
                   <button
                     onClick={() => getAIFeedback(question.id)}
-                    disabled={!question.userAnswer || countWords(question.userAnswer) < 10}
+                    disabled={!question.userAnswer || countWords(question.userAnswer) < 10 || loadingFeedback === question.id}
                     className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-lg transition-colors flex items-center gap-2 text-sm"
                   >
-                    <Wand2 className="w-4 h-4" />
-                    <span>{t.aiHelp}</span>
+                    {loadingFeedback === question.id ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        >
+                          <Wand2 className="w-4 h-4" />
+                        </motion.div>
+                        <span>{language === 'en' ? 'Thinking...' : 'Pensando...'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Wand2 className="w-4 h-4" />
+                        <span>{t.aiHelp}</span>
+                      </>
+                    )}
                   </button>
 
                   <button
