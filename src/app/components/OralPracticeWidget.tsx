@@ -23,7 +23,7 @@ interface Question {
   showSuggested?: boolean;
 }
 
-interface ReadingComprehensionWidgetProps {
+interface OralPracticeWidgetProps {
   language: 'en' | 'es';
   onLanguageToggle: () => void;
   activity: OralPracticeActivity;
@@ -31,7 +31,7 @@ interface ReadingComprehensionWidgetProps {
 
 const translations = {
   en: {
-    title: 'Reading Comprehension',
+    title: 'Oral Practice',
     instructions:
       'Listen to the audio and answer the questions with complete sentences. Practice your oral skills by speaking your answers aloud before writing them.',
     playAudio: 'Play Questions',
@@ -55,7 +55,7 @@ const translations = {
     tips: 'Tips',
   },
   es: {
-    title: 'Comprensión de Lectura',
+    title: 'Ejercicios',
     instructions:
       'Escucha el audio y responde las preguntas con oraciones completas. Practica tus habilidades orales hablando tus respuestas en voz alta antes de escribirlas.',
     playAudio: 'Reproducir preguntas',
@@ -80,7 +80,7 @@ const translations = {
   },
 };
 
-export function ReadingComprehensionWidget({ language, onLanguageToggle, activity }: ReadingComprehensionWidgetProps) {
+export function OralPracticeWidget({ language, onLanguageToggle, activity }: OralPracticeWidgetProps) {
   const t = translations[language];
   const [isPlayingAll, setIsPlayingAll] = useState(false);
   const [autoSaving, setAutoSaving] = useState(false);
@@ -227,7 +227,7 @@ export function ReadingComprehensionWidget({ language, onLanguageToggle, activit
       >
         <CompactWidgetHeader
           identifier="BtSB1-L3-2"
-          breadcrumb={['Lección 3', 'Reading Comprehension', '2']}
+          breadcrumb={['Lección 3', 'Oral Practice', '2']}
           title={t.title}
           icon={Mic}
           iconColor="text-white"
@@ -582,7 +582,8 @@ export function ReadingComprehensionWidget({ language, onLanguageToggle, activit
                 <div className="border-t border-gray-200" />
               )}
             </div>
-          ))}</div>
+          ))}
+        </div>
       </div>
     </div>
   );
